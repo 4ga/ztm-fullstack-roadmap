@@ -1,4 +1,4 @@
-# P01 Healthcheck API
+# P01 Healthcheck API (HTTP basics + tests + Git)
 
 ### How to install
 
