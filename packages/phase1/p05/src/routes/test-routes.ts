@@ -8,5 +8,5 @@ testRouter.get("/test/throw", (_req, _res) => {
 });
 
 testRouter.get("/test/bad-request", (_req, _res, next) => {
-  next(new AppError(400, "Bad Request"));
+  return next(new AppError(400, "Bad Request"));
 });
