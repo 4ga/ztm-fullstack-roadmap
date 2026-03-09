@@ -2,9 +2,10 @@ import request from "supertest";
 import { describe, expect, it } from "vitest";
 import { buildApp } from "../src/app";
 
+const app = buildApp();
+
 describe("global error handler", () => {
   it("return 500 for a thrown error", async () => {
-    const app = buildApp();
     const res = await request(app).get("/test/throw");
 
     expect(res.status).toBe(500);
@@ -14,7 +15,6 @@ describe("global error handler", () => {
   });
 
   it("returns 404 for an unknown route", async () => {
-    const app = buildApp();
     const res = await request(app).get("/does-not-exist");
 
     expect(res.status).toBe(404);
@@ -22,7 +22,6 @@ describe("global error handler", () => {
   });
 
   it("returns 400 for a known bad request error", async () => {
-    const app = buildApp();
     const res = await request(app).get("/test/bad-request");
 
     expect(res.status).toBe(400);
