@@ -16,5 +16,6 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
       requestId: res.getHeader("x-request-id") ?? req.headers["x-request-id"],
     });
   }
-  res.status(statusCode).json({ error: message });
+
+  return res.status(statusCode).json({ error: message });
 };
