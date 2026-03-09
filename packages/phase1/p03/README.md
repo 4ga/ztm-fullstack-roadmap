@@ -27,20 +27,20 @@ npm run dev
 
 This app validates environment variables on startup and fails fast if they are invalid.
 
-Required / supported variables:
+Supported variables:
 
-- `NODE_ENV` - one of: `development`, `test`, `production`
+- `NODE_ENV`: `development` | `test` | `production`
   - default: `development`
-- `PORT` - positive integer
+- `PORT`: positive integer
   - default: `3000`
 
-Copy the example file:
+Example setup:
 
 ```bash
 cp .env.example .env
 ```
 
-Important:
+Notes:
 
 - Environment variables are read in `src/config.ts` only
 - Invalid config prevents the server from starting
