@@ -6,6 +6,9 @@ import {
   type CreateRequestId,
 } from "./middleware/requestId";
 import { createRequestLoggingMiddleware } from "./middleware/requestLogging";
+import { testRouter } from "./routes/test-routes";
+import { notFoundHandler } from "./middleware/not-found";
+import { errorHandler } from "./middleware/error-handler";
 
 type BuildAppOptions = {
   logger?: Logger;
@@ -22,14 +25,14 @@ export function buildApp(options: BuildAppOptions = {}) {
   app.use(express.json());
   app.use(createRequestIdMiddleware(createRequestId));
   app.use(createRequestLoggingMiddleware(logger));
+  app.use(testRouter);
 
   app.get("/health", (_req, res) => {
     res.status(200).json({ ok: true });
   });
 
-  app.use((_req, res) => {
-    res.status(404).json({ error: "Not Found" });
-  });
+  app.use(notFoundHandler);
+  app.use(errorHandler);
 
   return app;
 }
