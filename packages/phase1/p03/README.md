@@ -1,6 +1,6 @@
 # P03 Env Config + Fail-Fast
 
-## Requirements
+## Project Standards
 
 - Validation failures: `400 {"error": "Bad Request"}`
 - Unknown routes: `404 {"error": "Not Found"}`
@@ -45,3 +45,4 @@ Notes:
 - Environment variables are read in `src/config.ts` only
 - Invalid config prevents the server from starting
 - Secrets must never be logged
+- Example invalid values include `NODE_ENV=staging` or `PORT=abc`
