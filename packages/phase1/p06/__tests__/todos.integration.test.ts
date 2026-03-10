@@ -1,15 +1,16 @@
 import request from "supertest";
 import { describe, expect, it, vi } from "vitest";
+import { createApp } from "../src/app";
 
 const makeApp = () => {
-  const createdId = vi
+  const createId = vi
     .fn()
     .mockReturnValueOnce("todo-1")
     .mockReturnValueOnce("todo-2")
     .mockReturnValueOnce("todo-3")
     .mockReturnValueOnce("todo-4");
 
-  return createApp({ createdId });
+  return createApp({ createId });
 };
 
 describe("todos API", () => {
@@ -101,7 +102,7 @@ describe("todos API", () => {
 
     const response = await request(app).get("/uknown");
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(404);
     expect(response.body).toEqual({ error: "Not Found" });
   });
 });
