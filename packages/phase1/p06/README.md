@@ -1,6 +1,6 @@
 # P06 Todos CRUD API
 
-Deterministic in-memory CRUD REST API built with Node.js, TypeScript, Express, Zod, Vitest, and Supertest.
+Deterministic in-memory CRUD REST API built with Node.js, TypeScript, Express, Zod, Vitest, and Supertest. Data is stored in memory only and will be reset when the server restarts.
 
 ## Endpoints
 
@@ -82,6 +82,22 @@ Response:
       "completed": false
     }
   ]
+}
+```
+
+### Get by id
+
+```http
+GET /todos/todo-1
+```
+
+Response:
+
+```json
+{
+  "id": "todo-1",
+  "title": "Learn Express",
+  "completed": false
 }
 ```
 
