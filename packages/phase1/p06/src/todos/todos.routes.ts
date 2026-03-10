@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { z } from "zod";
-import { IdGenerator } from "../lib/id";
-import { TodoStore } from "./todo.store";
+import type { IdGenerator } from "../lib/id";
+import type { TodoStore } from "./todo.store";
 
 interface CreateTodosRouterDeps {
   store: TodoStore;

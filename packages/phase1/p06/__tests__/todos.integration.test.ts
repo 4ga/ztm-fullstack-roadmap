@@ -3,13 +3,8 @@ import { describe, expect, it, vi } from "vitest";
 import { createApp } from "../src/app";
 
 const makeApp = () => {
-  const createId = vi
-    .fn()
-    .mockReturnValueOnce("todo-1")
-    .mockReturnValueOnce("todo-2")
-    .mockReturnValueOnce("todo-3")
-    .mockReturnValueOnce("todo-4");
-
+  let nextId = 1;
+  const createId = vi.fn(() => `todo-${nextId++}`);
   return createApp({ createId });
 };
 
@@ -97,7 +92,7 @@ describe("todos API", () => {
     expect(response.body).toEqual({ error: "Bad Request" });
   });
 
-  it("returns 404 for unknown routs", async () => {
+  it("returns 404 for unknown routes", async () => {
     const app = makeApp();
 
     const response = await request(app).get("/uknown");
