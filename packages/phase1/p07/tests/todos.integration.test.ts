@@ -42,7 +42,7 @@ describe("todos api (sqlite)", () => {
         id: "todo-1",
         title: "Learn SQLite",
         completed: false,
-        createdAt: "2026-03-10T00:00:00.000Z",
+        createdAt: "2026-03-11T00:00:00.000Z",
       },
     });
 
@@ -58,7 +58,7 @@ describe("todos api (sqlite)", () => {
           id: "todo-1",
           title: "Learn SQLite",
           completed: false,
-          createdAt: "2026-03-10T00:00:00.000Z",
+          createdAt: "2026-03-11T00:00:00.000Z",
         },
       ],
     });
@@ -77,7 +77,7 @@ describe("todos api (sqlite)", () => {
         id: "todo-1",
         title: "After",
         completed: true,
-        createdAt: "2026-03-10T00:00:00.000Z",
+        createdAt: "2026-03-11T00:00:00.000Z",
       },
     });
 

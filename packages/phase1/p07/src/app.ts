@@ -53,13 +53,13 @@ export function buildApp(options: BuildAppOptions) {
   app.get("/health", (_req, res) => res.status(200).json({ ok: true }));
 
   app.use(
-    "/todos",
     createTodosRouter({
       todosRepository: options.todosRepository,
       createTodoId,
       now,
     }),
   );
+  
 
   app.use((_req, res) => res.status(404).json({ error: "Not Found" }));
   app.use(errorHandler);
